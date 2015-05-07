@@ -1,2 +1,2 @@
 # Data-Structures
-Basic data structures
+Implementation of functionality of data structures; used for testing algorithm/data structure functions.
