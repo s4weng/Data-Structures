@@ -32,6 +32,23 @@ void insertNode(BST *t, int data){
 		std::cout << "Element already exists!" << std::endl;
 }
 
+int max(int a, int b){
+	
+	return (a > b ? a : b); //if equal we can return either
+}
+
+int findHeight(BST *t){
+	
+	if (t->left && t->right)
+		return 1 + max(findHeight(t->left), findHeight(t->right));
+	else if (t->left)
+		return 1 + findHeight(t->left);
+	else if (t->right)
+		return 1 + findHeight(t->right);
+	else
+		return 0; //account for height starting 0
+}
+
 void printInOrder(BST *t){
 	
 	std::cout << t->data << std::endl;
@@ -47,7 +64,10 @@ int main() {
 	BST *t = new BST(3);
 	printInOrder(t);
 	insertNode(t, 2);
+	insertNode(t, 1);
+	insertNode(t, 5);
 	insertNode(t, 4);
+	insertNode(t, 6);
 	printInOrder(t);
 	return 0;
 }
